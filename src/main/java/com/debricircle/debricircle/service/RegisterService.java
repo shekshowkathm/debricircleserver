@@ -13,13 +13,15 @@ import com.debricircle.debricircle.repository.IRegisterRepository;
  * @Author : Shek Showkath 
  * 
  *@Date : 04-08-2023
+ *
+ *@modified : 09-08-2023
  */
 
 @Service
 public class RegisterService implements IRegisterService {
-	
+
 	private final PasswordEncoder passwordEncoder;
-	
+
 	public RegisterService(PasswordEncoder passwordEncoder) {
 		this.passwordEncoder = passwordEncoder;
 	}
@@ -76,6 +78,13 @@ public class RegisterService implements IRegisterService {
 	@Override
 	public boolean isEmailExists(String email) {
 		return iRegisterRepository.existsByEmail(email);
+	}
+
+	@Override
+	public Register updatePassword(Register register) {
+		Register userDetails = iRegisterRepository.findByEmail(register.getEmail());
+		userDetails.setPassword(passwordEncoder.encode(register.getPassword()));
+		return iRegisterRepository.save(userDetails);
 	}
 
 }

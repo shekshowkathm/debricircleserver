@@ -67,5 +67,11 @@ public class RegisterController {
 		Register updateRegister = iRegisterService.updateById(register);
 		return new ResponseEntity<Register>(updateRegister, HttpStatus.OK);
 	}
+	
+	@PutMapping("/updatepassword")
+	public ResponseEntity<Register> updatePassword(@RequestBody Register register){
+		Register updatePasswordOnly=iRegisterService.updatePassword(register);
+		return new ResponseEntity<Register>(updatePasswordOnly,HttpStatus.ACCEPTED);
+	}
 
 }

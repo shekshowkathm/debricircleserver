@@ -22,5 +22,7 @@ public interface IRegisterService {
 	public void deleteById(String id);
 	
 	public boolean isEmailExists(String email);
+	
+	public Register updatePassword(Register register);
 
 }

@@ -43,7 +43,9 @@ public class SecurityConfig {
 			"/sellmaterials/claimsellmaterials",
 			
 	};
-	private static final String[] UN_SECURED_URLs = { "/register/createregister", "/authenticate/login" 
+	private static final String[] UN_SECURED_URLs = { 
+			"/register/createregister", "/authenticate/login" ,
+			"/register/updatepassword",
 			
 	};
 
