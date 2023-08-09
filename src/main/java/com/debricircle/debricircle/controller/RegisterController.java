@@ -33,7 +33,12 @@ public class RegisterController {
 	private IRegisterService iRegisterService;
 
 	@PostMapping("/createregister")
-	public ResponseEntity<Register> createRegister(@RequestBody Register register) {
+	public ResponseEntity<?> createRegister(@RequestBody Register register) {
+
+		if (iRegisterService.isEmailExists(register.getEmail())) {
+			return ResponseEntity.badRequest().body("Email already exists");
+		}
+
 		Register saveRegister = iRegisterService.addRegister(register);
 		return new ResponseEntity<Register>(saveRegister, HttpStatus.CREATED);
 	}
@@ -44,7 +49,7 @@ public class RegisterController {
 		return new ResponseEntity<List<Register>>(getAllRegister, HttpStatus.OK);
 	}
 
-	@GetMapping("claimregisterbyid/{id}")
+	@GetMapping("/claimregisterbyid/{id}")
 	public ResponseEntity<Register> claimRegisterById(@PathVariable("id") String registerId) {
 		Register getById = iRegisterService.getById(registerId);
 		return new ResponseEntity<Register>(getById, HttpStatus.OK);

@@ -10,5 +10,6 @@ import com.debricircle.debricircle.model.Register;
  *@Date : 04-08-2023
  */
 public interface IRegisterRepository extends MongoRepository<Register, String> {
-
+	public boolean existsByEmail(String email);
+	public Register findByEmail(String email);
 }

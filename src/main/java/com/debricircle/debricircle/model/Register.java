@@ -19,12 +19,14 @@ public class Register {
 	@Indexed
 	private String userId;
 	private String name;
-	private String businessname;
-	private String businesslocation;
-	private String businessaddress;
-	private String number;
+	private String businessName;
+	private String location;
+	private String address;
+	private String mobileNumber;
 	private String gst;
+	private String businessType;
 	private String password;
+	@Indexed
 	private String email;
 	private String role;
 
@@ -52,36 +54,36 @@ public class Register {
 		this.name = name;
 	}
 
-	public String getBusinessname() {
-		return businessname;
+	public String getBusinessName() {
+		return businessName;
 	}
 
-	public void setBusinessname(String businessname) {
-		this.businessname = businessname;
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
 	}
 
-	public String getBusinesslocation() {
-		return businesslocation;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setBusinesslocation(String businesslocation) {
-		this.businesslocation = businesslocation;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
-	public String getBusinessaddress() {
-		return businessaddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setBusinessaddress(String businessaddress) {
-		this.businessaddress = businessaddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
 	public String getGst() {
@@ -90,6 +92,14 @@ public class Register {
 
 	public void setGst(String gst) {
 		this.gst = gst;
+	}
+
+	public String getBusinessType() {
+		return businessType;
+	}
+
+	public void setBusinessType(String businessType) {
+		this.businessType = businessType;
 	}
 
 	public String getPassword() {
@@ -118,22 +128,24 @@ public class Register {
 
 	@Override
 	public String toString() {
-		return "Register [id=" + id + ", userId=" + userId + ", name=" + name + ", businessname=" + businessname
-				+ ", businesslocation=" + businesslocation + ", businessaddress=" + businessaddress + ", number="
-				+ number + ", gst=" + gst + ", password=" + password + ", email=" + email + ", role=" + role + "]";
+		return "Register [id=" + id + ", userId=" + userId + ", name=" + name + ", businessName=" + businessName
+				+ ", location=" + location + ", address=" + address + ", mobileNumber=" + mobileNumber + ", gst=" + gst
+				+ ", businessType=" + businessType + ", password=" + password + ", email=" + email + ", role=" + role
+				+ "]";
 	}
 
-	public Register(String id, String userId, String name, String businessname, String businesslocation,
-			String businessaddress, String number, String gst, String password, String email, String role) {
+	public Register(String id, String userId, String name, String businessName, String location, String address,
+			String mobileNumber, String gst, String businessType, String password, String email, String role) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.name = name;
-		this.businessname = businessname;
-		this.businesslocation = businesslocation;
-		this.businessaddress = businessaddress;
-		this.number = number;
+		this.businessName = businessName;
+		this.location = location;
+		this.address = address;
+		this.mobileNumber = mobileNumber;
 		this.gst = gst;
+		this.businessType = businessType;
 		this.password = password;
 		this.email = email;
 		this.role = role;
