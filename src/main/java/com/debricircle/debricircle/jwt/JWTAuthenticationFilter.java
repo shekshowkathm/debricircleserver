@@ -28,15 +28,18 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
-	private final JWTService jwtService;
-
-	public JWTAuthenticationFilter(JWTService jwtService) {
-		this.jwtService = jwtService;
-	}
+//	private final JWTService jwtService;
+//
+//	public JWTAuthenticationFilter(JWTService jwtService) {
+//		this.jwtService = jwtService;
+//	}
 
 	@Autowired
 	private DebriUserDetailsService debriUserDetailsService;
 
+	@Autowired
+	private JWTService jwtService;
+	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {

@@ -11,14 +11,17 @@ import com.debricircle.debricircle.model.SellMaterials;
  */
 
 public interface ISellMaterialsService {
-	
+
 	public SellMaterials addSellMaterials(SellMaterials sellMaterials);
-	
+
 	public List<SellMaterials> getAllRegister();
-	
+
 	public SellMaterials getSellMaterialsById(String id);
-	
+
 	public SellMaterials updateSellMaterials(SellMaterials sellMaterials);
-	
+
 	public void deleteById(String id);
+
+	public SellMaterials getByuserIDAndID(String userid, String id);
+
 }

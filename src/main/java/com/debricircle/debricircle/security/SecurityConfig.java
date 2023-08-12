@@ -40,12 +40,19 @@ public class SecurityConfig {
 	private static final String[] SPECIAL_URLs = { 
 			"/register/claimregisterbyid/{id}", 
 			"/sellmaterials/createsellmaterials",
-			"/sellmaterials/claimsellmaterials",
+			
+			"/sellmaterials/getbyuseridandid/{userid}/{id}",
+			"/addtocart/createcart",
+			"/addtocart/claimaddtocart",
+			"/addtocart/updatepiece",
+			"/addtocart/getcartdetails/{userid}",
+			
 			
 	};
 	private static final String[] UN_SECURED_URLs = { 
 			"/register/createregister", "/authenticate/login" ,
 			"/register/updatepassword",
+			"/sellmaterials/claimsellmaterials"
 			
 	};
 

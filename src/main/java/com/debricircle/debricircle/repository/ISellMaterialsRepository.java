@@ -10,5 +10,5 @@ import com.debricircle.debricircle.model.SellMaterials;
  *@Date : 04-08-2023
  */
 public interface ISellMaterialsRepository extends MongoRepository<SellMaterials, String> {
-
+	public SellMaterials findByUserIdAndId(String userId, String id);
 }

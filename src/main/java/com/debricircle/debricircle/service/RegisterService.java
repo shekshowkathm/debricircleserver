@@ -31,7 +31,7 @@ public class RegisterService implements IRegisterService {
 
 	@Override
 	public Register addRegister(Register register) {
-		register.setRole("ADMIN");
+		register.setRole("USER");
 		// Generate a random userid
 		long randomUserId = generateRandomUserId();
 		register.setUserId(Long.toString(randomUserId));

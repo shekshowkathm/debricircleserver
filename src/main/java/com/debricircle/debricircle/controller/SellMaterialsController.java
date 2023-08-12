@@ -64,5 +64,11 @@ public class SellMaterialsController {
 		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 
 	}
+	
+	@GetMapping("/getbyuseridandid/{userid}/{id}")
+	public ResponseEntity<SellMaterials> getByUserIDAndIDSellMAterials(@PathVariable("userid") String userid,@PathVariable("id") String sellMaterialsId){
+		SellMaterials getbyuseridAndId=iSellMaterialsService.getByuserIDAndID(userid, sellMaterialsId);
+		return new ResponseEntity<SellMaterials>(getbyuseridAndId,HttpStatus.OK);
+	}
 
 }

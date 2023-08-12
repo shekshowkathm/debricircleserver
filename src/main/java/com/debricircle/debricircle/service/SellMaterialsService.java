@@ -50,4 +50,10 @@ public class SellMaterialsService implements ISellMaterialsService {
 
 	}
 
+	@Override
+	public SellMaterials getByuserIDAndID(String userid, String id) {
+		
+		return iSellMaterialsRepository.findByUserIdAndId(userid, id);
+	}
+
 }
