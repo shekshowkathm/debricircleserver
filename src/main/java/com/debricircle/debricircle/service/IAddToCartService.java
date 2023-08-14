@@ -18,5 +18,11 @@ public interface IAddToCartService {
 	public AddToCart updateAddToCart(AddToCart addToCart);
 	
 	public List<AddToCart> getCartByUserID(String userid);
+	
+	public void deleteCartByUseridAndProductID(String userid, String productid);
+	
+	public AddToCart incrementProductPiece(AddToCart addToCart);
+	
+	public AddToCart decrementProductPiece(AddToCart addToCart);
 
 }

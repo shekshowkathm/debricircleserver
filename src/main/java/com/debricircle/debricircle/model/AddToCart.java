@@ -29,7 +29,8 @@ public class AddToCart {
 	private String location;
 	private String description;
 	private String mobileNumber;
-	private String productPrice;
+	private long productPrice;
+	private long productPriceForSinglePiece;
 	private String quantity;
 	private String address;
 	private String image;
@@ -96,11 +97,17 @@ public class AddToCart {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	public String getProductPrice() {
+	public long getProductPrice() {
 		return productPrice;
 	}
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(long productPrice) {
 		this.productPrice = productPrice;
+	}
+	public long getProductPriceForSinglePiece() {
+		return productPriceForSinglePiece;
+	}
+	public void setProductPriceForSinglePiece(long productPriceForSinglePiece) {
+		this.productPriceForSinglePiece = productPriceForSinglePiece;
 	}
 	public String getQuantity() {
 		return quantity;
@@ -143,13 +150,14 @@ public class AddToCart {
 		return "AddToCart [idAddToCart=" + idAddToCart + ", userId=" + userId + ", productID=" + productID
 				+ ", materialtype=" + materialtype + ", category=" + category + ", availability=" + availability
 				+ ", quality=" + quality + ", location=" + location + ", description=" + description + ", mobileNumber="
-				+ mobileNumber + ", productPrice=" + productPrice + ", quantity=" + quantity + ", address=" + address
-				+ ", image=" + image + ", id=" + id + ", selectedDate=" + selectedDate + ", piece=" + piece + "]";
+				+ mobileNumber + ", productPrice=" + productPrice + ", productPriceForSinglePiece="
+				+ productPriceForSinglePiece + ", quantity=" + quantity + ", address=" + address + ", image=" + image
+				+ ", id=" + id + ", selectedDate=" + selectedDate + ", piece=" + piece + "]";
 	}
 	public AddToCart(String idAddToCart, String userId, String productID, String materialtype, String category,
 			String availability, String quality, String location, String description, String mobileNumber,
-			String productPrice, String quantity, String address, String image, String id, String selectedDate,
-			long piece) {
+			long productPrice, long productPriceForSinglePiece, String quantity, String address, String image,
+			String id, String selectedDate, long piece) {
 		super();
 		this.idAddToCart = idAddToCart;
 		this.userId = userId;
@@ -162,6 +170,7 @@ public class AddToCart {
 		this.description = description;
 		this.mobileNumber = mobileNumber;
 		this.productPrice = productPrice;
+		this.productPriceForSinglePiece = productPriceForSinglePiece;
 		this.quantity = quantity;
 		this.address = address;
 		this.image = image;

@@ -31,6 +31,7 @@ public class AddToCartService implements IAddToCartService{
 		} else {
 			addToCart.setProductID(addToCart.getId());
 			addToCart.setPiece(1);
+			addToCart.setProductPriceForSinglePiece(addToCart.getProductPrice());
 			AddToCart saveCart=addToCartRepository.save(addToCart);
 			
 			return saveCart;
@@ -52,6 +53,26 @@ public class AddToCartService implements IAddToCartService{
 	@Override
 	public List<AddToCart> getCartByUserID(String userid) {
 		return addToCartRepository.findByUserId(userid);
+	}
+
+	@Override
+	public void deleteCartByUseridAndProductID(String userid, String productid) {
+		addToCartRepository.deleteByUserIdAndProductID(userid, productid);
+	}
+
+	@Override
+	public AddToCart incrementProductPiece(AddToCart addToCart) {
+		addToCart.setPiece(addToCart.getPiece()+1);
+		addToCart.setProductPrice(addToCart.getProductPriceForSinglePiece()+addToCart.getProductPrice());
+		return addToCartRepository.save(addToCart);
+	}
+
+	@Override
+	public AddToCart decrementProductPiece(AddToCart addToCart) {
+		addToCart.setPiece(addToCart.getPiece()-1);
+		addToCart.setProductPrice(addToCart.getProductPrice()-addToCart.getProductPriceForSinglePiece());
+
+		return addToCartRepository.save(addToCart);
 	}
 
 }

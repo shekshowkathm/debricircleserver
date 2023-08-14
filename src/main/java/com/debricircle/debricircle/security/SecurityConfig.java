@@ -46,6 +46,9 @@ public class SecurityConfig {
 			"/addtocart/claimaddtocart",
 			"/addtocart/updatepiece",
 			"/addtocart/getcartdetails/{userid}",
+			"/addtocart/removecart/{userid}/{productId}",
+			"/addtocart/incrementpieceofproduct",
+			"/addtocart/decrementpieceofproduct",
 			
 			
 	};

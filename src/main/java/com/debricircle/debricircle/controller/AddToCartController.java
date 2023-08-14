@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,8 @@ import com.debricircle.debricircle.service.IAddToCartService;
  * @Author : Shek Showkath 
  * 
  *@Date : 04-08-2023
+ *
+ *@Modified : 14-08-2023
  */
 
 @CrossOrigin
@@ -55,5 +58,24 @@ public class AddToCartController {
 		List<AddToCart> getDetails=addToCartService.getCartByUserID(userid);
 		return new ResponseEntity<List<AddToCart>>(getDetails,HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/removecart/{userid}/{productId}")
+	public ResponseEntity<Void> removeCart(@PathVariable("userid") String userid,@PathVariable("productId") String productId){
+		addToCartService.deleteCartByUseridAndProductID(userid, productId);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+	}
+	
+	@PutMapping("/incrementpieceofproduct")
+	public ResponseEntity<AddToCart> incrementPieceProduct(@RequestBody AddToCart addToCart){
+		AddToCart updatePiece=addToCartService.incrementProductPiece(addToCart);
+		return new ResponseEntity<AddToCart>(updatePiece,HttpStatus.ACCEPTED);
+	}
+	
+	@PutMapping("/decrementpieceofproduct")
+	public ResponseEntity<AddToCart> decrementPieceOfProduct(@RequestBody AddToCart addToCart){
+		AddToCart updatePiece=addToCartService.decrementProductPiece(addToCart);
+		return new ResponseEntity<AddToCart>(updatePiece,HttpStatus.ACCEPTED);
+	}
+	
 	
 }
