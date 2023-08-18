@@ -63,8 +63,9 @@ public class RegisterController {
 	}
 
 	@PutMapping("/updateregister/{id}")
-	public ResponseEntity<Register> updateRegister(@RequestBody Register register) {
-		Register updateRegister = iRegisterService.updateById(register);
+	public ResponseEntity<Register> updateRegister(@RequestBody Register register,@PathVariable("id") String registerId) {
+		
+		Register updateRegister = iRegisterService.updateById(register,registerId);
 		return new ResponseEntity<Register>(updateRegister, HttpStatus.OK);
 	}
 	

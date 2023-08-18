@@ -39,6 +39,7 @@ public class SecurityConfig {
 	};
 	private static final String[] SPECIAL_URLs = { 
 			"/register/claimregisterbyid/{id}", 
+			"/register/updateregister/{id}", 
 			"/sellmaterials/createsellmaterials",
 			
 			"/sellmaterials/getbyuseridandid/{userid}/{id}",
@@ -50,6 +51,13 @@ public class SecurityConfig {
 			"/addtocart/incrementpieceofproduct",
 			"/addtocart/decrementpieceofproduct",
 			
+			
+			"/address/createaddress",
+			"/address/claimalladdress",
+			"/address/claimaddressbyuserid/{id}",
+			"/address/deleteaddress/{id}",
+			"/address/claimaddressbyid/{id}",
+			"/address/updateaddress/{id}",
 			
 	};
 	private static final String[] UN_SECURED_URLs = { 

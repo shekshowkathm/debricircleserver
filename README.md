@@ -1,2 +1,2 @@
 # debricircleserver
-developments
+development

@@ -54,8 +54,17 @@ public class RegisterService implements IRegisterService {
 	}
 
 	@Override
-	public Register updateById(Register register) {
-		Register updateRegister = iRegisterRepository.save(register);
+	public Register updateById(Register register,String id) {
+		Register userDetails=iRegisterRepository.findById(id).get();
+		userDetails.setName(register.getName());
+		userDetails.setBusinessName(register.getBusinessName());
+		userDetails.setLocation(register.getLocation());
+		userDetails.setMobileNumber(register.getMobileNumber());
+		userDetails.setGst(register.getGst());
+		userDetails.setBusinessType(register.getBusinessType());
+		
+		System.out.println(userDetails);
+		Register updateRegister = iRegisterRepository.save(userDetails);
 		return updateRegister;
 	}
 

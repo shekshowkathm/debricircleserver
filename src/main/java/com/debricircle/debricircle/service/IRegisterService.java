@@ -17,7 +17,7 @@ public interface IRegisterService {
 
 	public Register getById(String id);
 
-	public Register updateById(Register register);
+	public Register updateById(Register register,String id);
 
 	public void deleteById(String id);
 	
