@@ -8,6 +8,7 @@ import com.debricircle.debricircle.model.Address;
  * 
  *@Date : 17-08-2023
  */
+import com.debricircle.debricircle.model.SampleModel;
 
 public interface IAddressService {
 
@@ -22,5 +23,7 @@ public interface IAddressService {
 	public void deleteById(String id);
 
 	public List<Address> getByUserId(String userId);
+	
+	
 
 }

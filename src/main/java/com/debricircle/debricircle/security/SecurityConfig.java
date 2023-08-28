@@ -35,29 +35,46 @@ public class SecurityConfig {
 
 	private static final String[] SECURED_URLs = { 
 			"/register/claimregister", 
+			"/register/deleteregisterbyid/{id}",
+			"/sellmaterials/deletesellmaterials/{id}",
+			"/nonsegregated/claimnonsegregated",
+			"/nonsegregated/deletenonsegregated/{id}",
+			
+			"/segregated/claimallsegregatedwaste",
+			"/segregated/deletesegregatedwaste/{id}",
+			
 			
 	};
 	private static final String[] SPECIAL_URLs = { 
-			"/register/claimregisterbyid/{id}", 
-			"/register/updateregister/{id}", 
-			"/sellmaterials/createsellmaterials",
-			
-			"/sellmaterials/getbyuseridandid/{userid}/{id}",
-			"/addtocart/createcart",
 			"/addtocart/claimaddtocart",
 			"/addtocart/updatepiece",
-			"/addtocart/getcartdetails/{userid}",
-			"/addtocart/removecart/{userid}/{productId}",
-			"/addtocart/incrementpieceofproduct",
-			"/addtocart/decrementpieceofproduct",
+			"/address/claimalladdress",
+	};
+	private static final String[] Common_URLs = {
+			"/sellmaterials/createsellmaterials",
+			"/sellmaterials/getbyuseridandid/{userid}/{id}",
 			
+			"/register/claimregisterbyid/{id}", 
+			"/register/updateregister/{id}", 
+			 
 			
 			"/address/createaddress",
-			"/address/claimalladdress",
 			"/address/claimaddressbyuserid/{id}",
 			"/address/deleteaddress/{id}",
 			"/address/claimaddressbyid/{id}",
 			"/address/updateaddress/{id}",
+			
+			
+			"/addtocart/createcart",
+			"/addtocart/removecart/{userid}/{productId}",
+			"/addtocart/incrementpieceofproduct",
+			"/addtocart/decrementpieceofproduct",
+			"/addtocart/getcartdetails/{userid}",
+			
+			"/nonsegregated/createnonsegregated",
+			
+			"/segregated/createsegregated",
+			
 			
 	};
 	private static final String[] UN_SECURED_URLs = { 
@@ -84,8 +101,11 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http
 				.cors().and()
-				.csrf().disable().authorizeHttpRequests().requestMatchers(UN_SECURED_URLs).permitAll().and()
+				.csrf().disable()
+				.authorizeHttpRequests().requestMatchers(UN_SECURED_URLs).permitAll().and()
+				
 				.authorizeHttpRequests().requestMatchers(SECURED_URLs).hasAnyAuthority("ADMIN")
+				.requestMatchers(SPECIAL_URLs).hasAnyAuthority("USER","ADMIN")
 				.requestMatchers(SPECIAL_URLs).hasAuthority("USER").anyRequest().authenticated().and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider())

@@ -49,6 +49,7 @@ public class JWTController {
 		String usernames = null;
 		String email = null;
 		String userid = null;
+		String role = null;
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword()));
 		if (authentication.isAuthenticated()) {
@@ -58,11 +59,13 @@ public class JWTController {
 			usernames = register.getName();
 			email = register.getEmail();
 			userid = register.getUserId();
+			role=register.getRole();
 
 			response.put("token", token);
 			response.put("name", usernames);
 			response.put("email", email);
 			response.put("userId", userid);
+			response.put("role", role);
 
 			return response;
 		} else {

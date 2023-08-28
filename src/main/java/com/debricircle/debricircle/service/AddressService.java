@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.debricircle.debricircle.model.Address;
+import com.debricircle.debricircle.model.SampleModel;
 import com.debricircle.debricircle.repository.IAddressRepository;
 
 /*
@@ -53,5 +54,8 @@ public class AddressService implements IAddressService {
 	public Address getAddressById(String id) {
 		return iAddressRepository.findById(id).get();
 	}
+
+	
+	
 
 }
