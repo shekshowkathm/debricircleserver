@@ -9,6 +9,6 @@ import com.debricircle.debricircle.model.SegregatedWaste;
  * 
  *@Date : 22-08-2023
  */
-public interface ISegregatedRepository extends MongoRepository<SegregatedWaste, String>{
-	
+public interface ISegregatedRepository extends MongoRepository<SegregatedWaste, String> {
+
 }

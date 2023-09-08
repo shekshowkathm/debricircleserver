@@ -24,13 +24,14 @@ public class SegregatedService implements ISegregatedService {
 	@Override
 	public SegregatedWaste addSegregatedWaste(SegregatedWaste segregatedWaste) {
 		TimeZone indianTimeZone = TimeZone.getTimeZone("Asia/Kolkata"); // IST time zone
-        long currentTimeMillis = System.currentTimeMillis();
-        long indianOffset = indianTimeZone.getRawOffset() + (indianTimeZone.inDaylightTime(new Date()) ? indianTimeZone.getDSTSavings() : 0);
-        long indianTimeMillis = currentTimeMillis + indianOffset;
+		long currentTimeMillis = System.currentTimeMillis();
+		long indianOffset = indianTimeZone.getRawOffset()
+				+ (indianTimeZone.inDaylightTime(new Date()) ? indianTimeZone.getDSTSavings() : 0);
+		long indianTimeMillis = currentTimeMillis + indianOffset;
 
-        // Create a Date object with the current Indian time
-        Date currentIndianTime = new Date(indianTimeMillis);
-        segregatedWaste.setOrderDate(currentIndianTime);
+		// Create a Date object with the current Indian time
+		Date currentIndianTime = new Date(indianTimeMillis);
+		segregatedWaste.setOrderDate(currentIndianTime);
 		SegregatedWaste saveSegregated = segregatedRepository.save(segregatedWaste);
 		return saveSegregated;
 	}

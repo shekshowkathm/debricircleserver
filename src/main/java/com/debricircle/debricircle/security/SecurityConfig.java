@@ -56,6 +56,8 @@ public class SecurityConfig {
 			
 			"/register/claimregisterbyid/{id}", 
 			"/register/updateregister/{id}", 
+			"/register/updateindex/{id}/{index}", 
+			
 			 
 			
 			"/address/createaddress",
@@ -78,7 +80,8 @@ public class SecurityConfig {
 			
 	};
 	private static final String[] UN_SECURED_URLs = { 
-			"/register/createregister", "/authenticate/login" ,
+			"/register/createregister",
+			"/authenticate/login" ,
 			"/register/updatepassword",
 			"/sellmaterials/claimsellmaterials"
 			

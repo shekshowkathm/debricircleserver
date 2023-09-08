@@ -11,8 +11,8 @@ import com.debricircle.debricircle.model.SegregatedWaste;
 
 public interface ISegregatedService {
 	public SegregatedWaste addSegregatedWaste(SegregatedWaste segregatedWaste);
-	
+
 	public List<SegregatedWaste> getAllSegregated();
-	
+
 	public void deleteWasteByID(String id);
 }

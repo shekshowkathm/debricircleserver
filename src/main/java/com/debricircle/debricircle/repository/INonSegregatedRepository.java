@@ -12,6 +12,6 @@ import com.debricircle.debricircle.model.NonSegregated;
  *@modified : 21-08-2023
  */
 
-public interface INonSegregatedRepository extends MongoRepository<NonSegregated, String>{
+public interface INonSegregatedRepository extends MongoRepository<NonSegregated, String> {
 
 }

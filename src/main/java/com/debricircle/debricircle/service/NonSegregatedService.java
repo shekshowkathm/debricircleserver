@@ -25,12 +25,13 @@ public class NonSegregatedService implements INonSegregatedService {
 	@Override
 	public NonSegregated addNonSegregated(NonSegregated nonSegregated) {
 		TimeZone indianTimeZone = TimeZone.getTimeZone("Asia/Kolkata"); // IST time zone
-        long currentTimeMillis = System.currentTimeMillis();
-        long indianOffset = indianTimeZone.getRawOffset() + (indianTimeZone.inDaylightTime(new Date()) ? indianTimeZone.getDSTSavings() : 0);
-        long indianTimeMillis = currentTimeMillis + indianOffset;
+		long currentTimeMillis = System.currentTimeMillis();
+		long indianOffset = indianTimeZone.getRawOffset()
+				+ (indianTimeZone.inDaylightTime(new Date()) ? indianTimeZone.getDSTSavings() : 0);
+		long indianTimeMillis = currentTimeMillis + indianOffset;
 
-        // Create a Date object with the current Indian time
-        Date currentIndianTime = new Date(indianTimeMillis);
+		// Create a Date object with the current Indian time
+		Date currentIndianTime = new Date(indianTimeMillis);
 		nonSegregated.setOrderDate(currentIndianTime);
 		NonSegregated saveNonSegregated = nonSegregatedRepository.save(nonSegregated);
 		return saveNonSegregated;

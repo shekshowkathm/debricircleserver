@@ -24,60 +24,78 @@ public class NonSegregated {
 	private String address;
 	private String tippingFees;
 	private Date orderDate;
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getLocation() {
 		return location;
 	}
+
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
 	public long getNumber() {
 		return number;
 	}
+
 	public void setNumber(long number) {
 		this.number = number;
 	}
+
 	public String getVolume() {
 		return volume;
 	}
+
 	public void setVolume(String volume) {
 		this.volume = volume;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public String getTippingFees() {
 		return tippingFees;
 	}
+
 	public void setTippingFees(String tippingFees) {
 		this.tippingFees = tippingFees;
 	}
+
 	public Date getOrderDate() {
 		return orderDate;
 	}
+
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
+
 	@Override
 	public String toString() {
 		return "NonSegregated [id=" + id + ", userId=" + userId + ", location=" + location + ", number=" + number
 				+ ", volume=" + volume + ", address=" + address + ", tippingFees=" + tippingFees + ", orderDate="
 				+ orderDate + "]";
 	}
+
 	public NonSegregated(String id, String userId, String location, long number, String volume, String address,
 			String tippingFees, Date orderDate) {
 		super();
@@ -90,5 +108,5 @@ public class NonSegregated {
 		this.tippingFees = tippingFees;
 		this.orderDate = orderDate;
 	}
-		
+
 }

@@ -17,12 +17,14 @@ public interface IRegisterService {
 
 	public Register getById(String id);
 
-	public Register updateById(Register register,String id);
+	public Register updateById(Register register, String id);
 
 	public void deleteById(String id);
-	
+
 	public boolean isEmailExists(String email);
-	
+
 	public Register updatePassword(Register register);
+
+	public Register updateIndex(String id, int index);
 
 }

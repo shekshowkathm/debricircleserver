@@ -74,5 +74,11 @@ public class RegisterController {
 		Register updatePasswordOnly=iRegisterService.updatePassword(register);
 		return new ResponseEntity<Register>(updatePasswordOnly,HttpStatus.ACCEPTED);
 	}
+	
+	@PutMapping("/updateindex/{id}/{index}")
+	public ResponseEntity<Register> updateIndex(@PathVariable("id") String registerId,@PathVariable("index") int index){
+		Register  updateIndex=iRegisterService.updateIndex(registerId, index);
+		return new ResponseEntity<Register>(updateIndex,HttpStatus.ACCEPTED);
+	}
 
 }

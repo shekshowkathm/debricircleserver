@@ -11,5 +11,6 @@ import com.debricircle.debricircle.model.Register;
  */
 public interface IRegisterRepository extends MongoRepository<Register, String> {
 	public boolean existsByEmail(String email);
+
 	public Register findByEmail(String email);
 }

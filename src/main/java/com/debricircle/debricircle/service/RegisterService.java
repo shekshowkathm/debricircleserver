@@ -37,6 +37,7 @@ public class RegisterService implements IRegisterService {
 		register.setUserId(Long.toString(randomUserId));
 		register.setId(register.getEmail());
 		register.setPassword(passwordEncoder.encode(register.getPassword()));
+
 		Register saveRegister = iRegisterRepository.save(register);
 		return saveRegister;
 	}
@@ -54,15 +55,15 @@ public class RegisterService implements IRegisterService {
 	}
 
 	@Override
-	public Register updateById(Register register,String id) {
-		Register userDetails=iRegisterRepository.findById(id).get();
+	public Register updateById(Register register, String id) {
+		Register userDetails = iRegisterRepository.findById(id).get();
 		userDetails.setName(register.getName());
 		userDetails.setBusinessName(register.getBusinessName());
 		userDetails.setLocation(register.getLocation());
 		userDetails.setMobileNumber(register.getMobileNumber());
 		userDetails.setGst(register.getGst());
 		userDetails.setBusinessType(register.getBusinessType());
-		
+
 		System.out.println(userDetails);
 		Register updateRegister = iRegisterRepository.save(userDetails);
 		return updateRegister;
@@ -94,6 +95,13 @@ public class RegisterService implements IRegisterService {
 		Register userDetails = iRegisterRepository.findByEmail(register.getEmail());
 		userDetails.setPassword(passwordEncoder.encode(register.getPassword()));
 		return iRegisterRepository.save(userDetails);
+	}
+
+	@Override
+	public Register updateIndex(String id, int index) {
+		Register updateIndex = iRegisterRepository.findById(id).get();
+
+		return iRegisterRepository.save(updateIndex);
 	}
 
 }

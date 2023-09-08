@@ -8,35 +8,32 @@ import org.springframework.stereotype.Service;
 import com.debricircle.debricircle.model.AddToCart;
 import com.debricircle.debricircle.repository.IAddToCartRepository;
 
-
 /*
  * @Author : Shek Showkath 
  * 
  *@Date : 09-08-2023
  */
 @Service
-public class AddToCartService implements IAddToCartService{
-	
-	
-	
+public class AddToCartService implements IAddToCartService {
+
 	@Autowired
 	private IAddToCartRepository addToCartRepository;
 
 	@Override
-	public AddToCart addCart(AddToCart addToCart) {	
-		AddToCart isCartAdded=addToCartRepository.findByUserIdAndProductID(addToCart.getUserId(), addToCart.getId());
-		
-		if (isCartAdded !=null) {
+	public AddToCart addCart(AddToCart addToCart) {
+		AddToCart isCartAdded = addToCartRepository.findByUserIdAndProductID(addToCart.getUserId(), addToCart.getId());
+
+		if (isCartAdded != null) {
 			return isCartAdded;
 		} else {
 			addToCart.setProductID(addToCart.getId());
 			addToCart.setPiece(1);
 			addToCart.setProductPriceForSinglePiece(addToCart.getProductPrice());
-			AddToCart saveCart=addToCartRepository.save(addToCart);
-			
+			AddToCart saveCart = addToCartRepository.save(addToCart);
+
 			return saveCart;
 		}
-		
+
 	}
 
 	@Override
@@ -46,7 +43,7 @@ public class AddToCartService implements IAddToCartService{
 
 	@Override
 	public AddToCart updateAddToCart(AddToCart addToCart) {
-		AddToCart updateAddToCart=addToCartRepository.save(addToCart);
+		AddToCart updateAddToCart = addToCartRepository.save(addToCart);
 		return updateAddToCart;
 	}
 
@@ -62,15 +59,15 @@ public class AddToCartService implements IAddToCartService{
 
 	@Override
 	public AddToCart incrementProductPiece(AddToCart addToCart) {
-		addToCart.setPiece(addToCart.getPiece()+1);
-		addToCart.setProductPrice(addToCart.getProductPriceForSinglePiece()+addToCart.getProductPrice());
+		addToCart.setPiece(addToCart.getPiece() + 1);
+		addToCart.setProductPrice(addToCart.getProductPriceForSinglePiece() + addToCart.getProductPrice());
 		return addToCartRepository.save(addToCart);
 	}
 
 	@Override
 	public AddToCart decrementProductPiece(AddToCart addToCart) {
-		addToCart.setPiece(addToCart.getPiece()-1);
-		addToCart.setProductPrice(addToCart.getProductPrice()-addToCart.getProductPriceForSinglePiece());
+		addToCart.setPiece(addToCart.getPiece() - 1);
+		addToCart.setProductPrice(addToCart.getProductPrice() - addToCart.getProductPriceForSinglePiece());
 
 		return addToCartRepository.save(addToCart);
 	}

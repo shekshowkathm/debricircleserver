@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "addtocart")
 
 public class AddToCart {
-	
+
 	@Id
 	@Indexed
 	private String idAddToCart;
@@ -36,115 +36,152 @@ public class AddToCart {
 	private String image;
 	private String id;
 	private String selectedDate;
-	private long piece ;
+	private long piece;
+
 	public String getIdAddToCart() {
 		return idAddToCart;
 	}
+
 	public void setIdAddToCart(String idAddToCart) {
 		this.idAddToCart = idAddToCart;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getProductID() {
 		return productID;
 	}
+
 	public void setProductID(String productID) {
 		this.productID = productID;
 	}
+
 	public String getMaterialtype() {
 		return materialtype;
 	}
+
 	public void setMaterialtype(String materialtype) {
 		this.materialtype = materialtype;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	public String getAvailability() {
 		return availability;
 	}
+
 	public void setAvailability(String availability) {
 		this.availability = availability;
 	}
+
 	public String getQuality() {
 		return quality;
 	}
+
 	public void setQuality(String quality) {
 		this.quality = quality;
 	}
+
 	public String getLocation() {
 		return location;
 	}
+
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
+
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
 	public long getProductPrice() {
 		return productPrice;
 	}
+
 	public void setProductPrice(long productPrice) {
 		this.productPrice = productPrice;
 	}
+
 	public long getProductPriceForSinglePiece() {
 		return productPriceForSinglePiece;
 	}
+
 	public void setProductPriceForSinglePiece(long productPriceForSinglePiece) {
 		this.productPriceForSinglePiece = productPriceForSinglePiece;
 	}
+
 	public String getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public String getImage() {
 		return image;
 	}
+
 	public void setImage(String image) {
 		this.image = image;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getSelectedDate() {
 		return selectedDate;
 	}
+
 	public void setSelectedDate(String selectedDate) {
 		this.selectedDate = selectedDate;
 	}
+
 	public long getPiece() {
 		return piece;
 	}
+
 	public void setPiece(long piece) {
 		this.piece = piece;
 	}
+
 	@Override
 	public String toString() {
 		return "AddToCart [idAddToCart=" + idAddToCart + ", userId=" + userId + ", productID=" + productID
@@ -154,6 +191,7 @@ public class AddToCart {
 				+ productPriceForSinglePiece + ", quantity=" + quantity + ", address=" + address + ", image=" + image
 				+ ", id=" + id + ", selectedDate=" + selectedDate + ", piece=" + piece + "]";
 	}
+
 	public AddToCart(String idAddToCart, String userId, String productID, String materialtype, String category,
 			String availability, String quality, String location, String description, String mobileNumber,
 			long productPrice, long productPriceForSinglePiece, String quantity, String address, String image,
@@ -178,8 +216,5 @@ public class AddToCart {
 		this.selectedDate = selectedDate;
 		this.piece = piece;
 	}
-	
-	
-	
-		
+
 }
