@@ -2,6 +2,7 @@ package com.debricircle.debricircle.model;
 
 import java.math.BigInteger;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -12,10 +13,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "payment")
 public class OrderRequest {
-	String customerName;
-	String email;
-	String phoneNumber;
-	BigInteger amount;
+
+	@Id
+	private String id;
+	private String customerName;
+	private String email;
+	private String phoneNumber;
+	private BigInteger amount;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getCustomerName() {
 		return customerName;
@@ -51,7 +63,8 @@ public class OrderRequest {
 
 	@Override
 	public String toString() {
-		return "OrderRequest [customerName=" + customerName + ", email=" + email + ", phoneNumber=" + phoneNumber
-				+ ", amount=" + amount + "]";
+		return "OrderRequest [id=" + id + ", customerName=" + customerName + ", email=" + email + ", phoneNumber="
+				+ phoneNumber + ", amount=" + amount + "]";
 	}
+
 }

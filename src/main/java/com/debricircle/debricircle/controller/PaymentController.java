@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.UUID;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.debricircle.debricircle.model.OrderRequest;
 import com.debricircle.debricircle.model.OrderResponse;
+import com.debricircle.debricircle.repository.IPaymentRepository;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
@@ -33,6 +35,8 @@ public class PaymentController {
 	private String secret_Id;
 	@Value("${razorpay1.secretkey}")
 	private String secret_key;
+	@Autowired
+	private IPaymentRepository paymentRepository;
 
 	@RequestMapping(path = "/createOrder", method = RequestMethod.POST)
 	public OrderResponse createOrder(@RequestBody OrderRequest orderRequest) {
@@ -56,13 +60,13 @@ public class PaymentController {
 			response.setSecretKey(secret_key);
 			response.setSecretId(secret_Id);
 			response.setPgName("razor1");
-
+			paymentRepository.save(orderRequest);
 			return response;
 
 		} catch (RazorpayException e) {
 			e.printStackTrace();
 		}
-
+		
 		return response;
 	}
 
