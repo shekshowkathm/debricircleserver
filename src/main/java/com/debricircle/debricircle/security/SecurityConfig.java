@@ -83,7 +83,8 @@ public class SecurityConfig {
 			"/register/createregister",
 			"/authenticate/login" ,
 			"/register/updatepassword",
-			"/sellmaterials/claimsellmaterials"
+			"/sellmaterials/claimsellmaterials",
+			"/pg/createOrder"
 			
 	};
 
